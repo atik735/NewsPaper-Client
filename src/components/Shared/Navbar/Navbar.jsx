@@ -43,7 +43,7 @@ const links = (
       <NavLink to="/allArticles" className={({ isActive }) => isActive ? "text-[#00001A] font-bold" : "text-gray-700"}>All Articles</NavLink>
     </li>
 
-    {user && dbUser?.role === "customer" && (
+    {user && (
       <>
         <li>
           <NavLink to="/addArticles" className={({ isActive }) => isActive ? "text-[#00001A] font-bold" : "text-gray-700"}>Add Articles</NavLink>
@@ -129,21 +129,23 @@ const links = (
       <div className="navbar-end space-x-3">
         {user ? (
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full overflow-hidden border">
-              {user?.photoURL || dbUser?.image ? (
-                <img
-                  src={
-                    user?.photoURL ||
-                    dbUser?.image ||
-                    "https://via.placeholder.com/40"
-                  }
-                  alt="User"
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <FaUserCircle className="w-full h-full text-gray-400" />
-              )}
-            </div>
+<div className="w-10 h-10 rounded-full overflow-hidden border">
+  {user?.photoURL ? (
+    <img
+      src={user.photoURL}
+      alt="User"
+      className="w-full h-full object-cover"
+    />
+  ) : dbUser?.image ? (
+    <img
+      src={dbUser.image}
+      alt="User"
+      className="w-full h-full object-cover"
+    />
+  ) : (
+    <FaUserCircle className="w-full h-full text-gray-400" />
+  )}
+</div>
             <button
               onClick={handleSignOut}
               className="btn btn-sm text-white bg-[#00001A] hover:bg-[#2e2e2e]"

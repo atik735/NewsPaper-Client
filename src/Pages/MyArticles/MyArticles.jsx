@@ -15,7 +15,7 @@ const MyArticles = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:5000/myarticles?email=${user.email}`)
+        .get(`${import.meta.env.VITE_API_URL}/myarticles?email=${user.email}`)
         .then(res => setArticles(res.data))
         .catch(err => toast.error('Failed to load articles'))
     }
@@ -35,7 +35,7 @@ const handleDelete = async (id) => {
 
   if (result.isConfirmed) {
     try {
-      const res = await axios.delete(`http://localhost:5000/articles/${id}`)
+      const res = await axios.delete(`${import.meta.env.VITE_API_URL}/articles/${id}`)
       if (res.data.deletedCount > 0) {
         Swal.fire('Deleted!', 'Your article has been deleted.', 'success')
         setArticles(prev => prev.filter(article => article._id !== id))
