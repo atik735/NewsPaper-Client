@@ -1,51 +1,63 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import useAuth from '../../hooks/useAuth'
 import { Link } from 'react-router'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import Swal from 'sweetalert2'
+import { useQuery } from '@tanstack/react-query'
 
 const MyArticles = () => {
   const { user } = useAuth()
-  const [articles, setArticles] = useState([])
   const [declineReason, setDeclineReason] = useState('')
   const [showModal, setShowModal] = useState(false)
 
-  // Fetch user's articles
-  useEffect(() => {
-    if (user?.email) {
-      axios
-        .get(`${import.meta.env.VITE_API_URL}/myarticles?email=${user.email}`)
-        .then(res => setArticles(res.data))
-        .catch(err => toast.error('Failed to load articles'))
-    }
-  }, [user?.email])
+  // Axios instance with JWT
+  const fetchArticles = async () => {
+    const token = await user.getIdToken()
+    const res = await axios.get(
+      `${import.meta.env.VITE_API_URL}/myarticles?email=${user.email}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    return res.data
+  }
 
-// Delete article
-const handleDelete = async (id) => {
-  const result = await Swal.fire({
-    title: 'Are you sure?',
-    text: 'You won\'t be able to revert this!',
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
+  // TanStack Query
+  const { data: articles = [], isLoading, refetch } = useQuery({
+    queryKey: ['myarticles', user?.email],
+    queryFn: fetchArticles,
+    enabled: !!user?.email, // Only run when user is loaded
   })
 
-  if (result.isConfirmed) {
-    try {
-      const res = await axios.delete(`${import.meta.env.VITE_API_URL}/articles/${id}`)
-      if (res.data.deletedCount > 0) {
-        Swal.fire('Deleted!', 'Your article has been deleted.', 'success')
-        setArticles(prev => prev.filter(article => article._id !== id))
+  // Delete article
+  const handleDelete = async (id) => {
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    })
+
+    if (result.isConfirmed) {
+      try {
+        const res = await axios.delete(`${import.meta.env.VITE_API_URL}/articles/${id}`)
+        if (res.data.deletedCount > 0) {
+          Swal.fire('Deleted!', 'Your article has been deleted.', 'success')
+          refetch() // TanStack Query re-fetch
+        }
+      } catch (err) {
+        Swal.fire('Error!', 'Failed to delete article.', 'error')
       }
-    } catch (err) {
-      Swal.fire('Error!', 'Failed to delete article.', 'error')
     }
   }
-}
 
+  if (isLoading) return <p className="text-center">Loading your articles...</p>
 
   return (
     <div className="p-6 max-w-6xl mx-auto">

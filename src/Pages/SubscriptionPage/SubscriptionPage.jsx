@@ -29,7 +29,9 @@ const SubscriptionPage = () => {
       </div>
 
       <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
-        <h2 className="text-2xl font-semibold mb-4">Choose Subscription Plan</h2>
+        <h2 className="text-2xl font-semibold mb-4">
+          Choose Subscription Plan
+        </h2>
 
         <label className="block text-gray-700 font-medium mb-2">
           Subscription Period:
@@ -47,7 +49,11 @@ const SubscriptionPage = () => {
         <p className="text-lg font-semibold mb-4">
           Selected Plan:{" "}
           <span className="text-indigo-600">
-            {period === "1" ? "1 Minute" : period === "5" ? "5 Days" : "10 Days"}
+            {period === "1"
+              ? "1 Minute"
+              : period === "5"
+              ? "5 Days"
+              : "10 Days"}
           </span>{" "}
           <span className="ml-2">(${price})</span>
         </p>

@@ -41,7 +41,7 @@ const Statistics = () => {
             <CountUp end={stats.normalUsers} duration={2} />
           </p>
         </div>
-        {/* Premium Users */}
+        {/* Premium Users  */}
         <div className="p-6 bg-white w-72 drop-shadow rounded">
           <h3 className="text-lg font-semibold">Premium Users</h3>
           <p className="text-3xl font-bold text-yellow-500">
