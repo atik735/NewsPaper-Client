@@ -65,7 +65,7 @@ const PremiumArticles = () => {
               </p>
               <Link
                 to={
-                  isPremium && !isSubscribed ? "#" : `/article/${article._id}`
+                  isPremium && !isSubscribed ? "#" : `/articles/${article._id}`
                 }
                 className={`my-auto btn btn-sm w-full mt-4 ${
                   isPremium && !isSubscribed
