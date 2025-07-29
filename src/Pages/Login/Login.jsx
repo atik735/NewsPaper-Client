@@ -93,7 +93,7 @@ const Login = () => {
           </div>
           <button
             type='submit'
-            className='w-full py-2 rounded bg-lime-500 text-white font-medium'
+            className='w-full py-2 rounded cursor-pointer bg-lime-500 text-white font-medium'
           >
             Login
           </button>
