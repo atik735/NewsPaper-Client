@@ -13,11 +13,21 @@ const ArticleDetails = () => {
   const { data: article, isLoading, isError } = useQuery({
     queryKey: ["articleDetails", id],
     queryFn: async () => {
+      // Get JWT token
+      const token = await user.getIdToken();
+      
+      // Send request with Authorization header
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/articles/${id}?email=${user.email}`
+        `${import.meta.env.VITE_API_URL}/articles/${id}?email=${user.email}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       return res.data;
     },
+    retry: false, // Optional: prevent retry on failure to handle errors gracefully
   });
 
   if (isLoading) {
