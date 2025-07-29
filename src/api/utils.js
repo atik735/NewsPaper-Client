@@ -1,0 +1,28 @@
+import axios from "axios";
+
+//upload image and return image url
+export const imageUpload = async ImageData =>{
+        //put raw image data in formData
+    const imageFormData = new FormData()
+    imageFormData.append("image",ImageData)
+
+        // upload image in imgbb server using post request 
+
+    const {data} = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`,
+      imageFormData
+    )
+
+    //image url response from imgbb
+    return data?.data?.display_url
+}
+
+
+// save or update user in db
+
+export const saveUserInDb = async user => {
+  const { data } = await axios.post(
+    `${import.meta.env.VITE_API_URL}/user`,
+    user
+  )
+  console.log(data)
+}
