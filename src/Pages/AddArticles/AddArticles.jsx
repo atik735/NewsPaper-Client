@@ -73,8 +73,17 @@ const AddArticles = () => {
       authorEmail: user.email,
     };
 
- try {
-  await axios.post(`${import.meta.env.VITE_API_URL}/articles`, articleData);
+try {
+  const token = await user.getIdToken();  
+  await axios.post(
+    `${import.meta.env.VITE_API_URL}/articles`,
+    articleData,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   toast.success("Article added successfully! Pending for approval.");
   form.reset();
   setUploadedImage(null);
