@@ -11,7 +11,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-// Create a client
+// Create a client 
 const queryClient = new QueryClient()
 // Load Stripe public key from .env
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK_KEY);
