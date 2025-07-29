@@ -45,7 +45,7 @@ const TrendingArticles = () => {
   return (
     <div className="my-10 px-4">
       <h1 className="text-2xl font-bold mb-5 text-center text-black">
-         Trending Articles
+        Trending Articles
       </h1>
 
       <Swiper
@@ -66,7 +66,9 @@ const TrendingArticles = () => {
           <SwiperSlide key={article._id}>
             <div
               className={`relative card shadow-lg w-full border-gray-300 border rounded-xl overflow-hidden ${
-                article.isPremium ? "bg-yellow-50 border-yellow-400" : "bg-white"
+                article.isPremium
+                  ? "bg-yellow-50 border-yellow-400"
+                  : "bg-white"
               }`}
             >
               {/* Premium Badge */}
@@ -81,25 +83,29 @@ const TrendingArticles = () => {
                   src={article.image}
                   alt={article.title}
                   className="w-full h-60 object-cover"
-                  />
+                />
               </figure>
               <div className="card-body text-start">
-                <h2 className="text-lg font-bold text-gray-800">{article.title}</h2>
-                <p className="text-sm text-gray-500">Publisher: {article.publisher}</p>
-                    {/* Tags */}
-    <div className="flex flex-wrap gap-2">
-      {article.tags?.map((tag, idx) => (
-        <span
-          key={idx}
-          className="text-xs bg-gray-200 px-2 py-1 rounded-full"
-        >
-          {tag}
-        </span>
-      ))}
-    </div>
+                <h2 className="text-lg font-bold text-gray-800">
+                  {article.title}
+                </h2>
+                <p className="text-sm text-gray-500">
+                  Publisher: {article.publisher}
+                </p>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {article.tags?.map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs bg-gray-200 px-2 py-1 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
                 <p className=" text-gray-700 text-sm">
-              {article.description?.slice(0, 100)}...
-            </p>
+                  {article.description?.slice(0, 100)}...
+                </p>
 
                 <p className="text-sm text-gray-400">Views: {article.views}</p>
                 <div className="mt-3">
