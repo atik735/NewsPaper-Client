@@ -7,7 +7,7 @@ import './slider.css';
 import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-
+ 
 const Publisher = () => {
   // Fetch publishers dynamically
   const { data: publishers = [], isLoading } = useQuery({
