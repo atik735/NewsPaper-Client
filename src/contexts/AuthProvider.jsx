@@ -17,10 +17,13 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const googleSignIn =()=>{ 
-        setLoading(true);
-        return signInWithPopup(auth,provider)
-    }
+const googleSignIn = async () => { 
+  setLoading(true);
+  const result = await signInWithPopup(auth, provider);
+  setUser(result.user); // সাথে সাথে context আপডেট করো
+  return result;
+};
+
     const signOutUser = () =>{
         setLoading(true);
         return signOut(auth)

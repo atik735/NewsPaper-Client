@@ -7,12 +7,14 @@ import { FcGoogle } from 'react-icons/fc'
 import toast from 'react-hot-toast'
 import useAuth from '../../hooks/useAuth'
 import { saveUserInDb } from '../../api/utils'
+import { useQueryClient } from '@tanstack/react-query'  // NEW
 
 const Login = () => {
   const { signInUser, googleSignIn, loading, user } = useAuth()
   const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
+  const queryClient = useQueryClient() // NEW
   const from = location?.state?.from?.pathname || '/'
 
   if (user) return <Navigate to={from} replace={true} />
@@ -33,9 +35,12 @@ const Login = () => {
 
       await saveUserInDb(userData)
       toast.success('Login successful!')
+
+      // Re-fetch Navbar data immediately
+      queryClient.invalidateQueries(['dbUser'])
+
       navigate(from, { replace: true })
     } catch (err) {
-      // console.error(err)
       toast.error(err?.message || 'Login failed')
     }
   }
@@ -51,9 +56,12 @@ const Login = () => {
 
       await saveUserInDb(userData)
       toast.success('Login with Google successful!')
+
+      // Re-fetch Navbar data immediately
+      queryClient.invalidateQueries(['dbUser'])
+
       navigate(from, { replace: true })
     } catch (err) {
-      // console.error(err)
       toast.error(err?.message)
     }
   }
