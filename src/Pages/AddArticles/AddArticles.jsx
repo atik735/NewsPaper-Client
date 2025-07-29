@@ -73,18 +73,22 @@ const AddArticles = () => {
       authorEmail: user.email,
     };
 
-    try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/articles`, articleData);
-      toast.success("Article added successfully! Pending for approval.");
-      form.reset();
-      setUploadedImage(null);
-      setTags([]);
-      setPublisher(null);
-    } catch (err) {
-      toast.error("Failed to add article");
-    } finally {
-      setIsSubmitting(false);
-    }
+ try {
+  await axios.post(`${import.meta.env.VITE_API_URL}/articles`, articleData);
+  toast.success("Article added successfully! Pending for approval.");
+  form.reset();
+  setUploadedImage(null);
+  setTags([]);
+  setPublisher(null);
+} catch (err) {
+  if (err.response && err.response.status === 403) {
+    toast.error(err.response.data.message || "Normal users can only publish 1 article.");
+  } else {
+    toast.error("Failed to add article");
+  }
+} finally {
+  setIsSubmitting(false);
+}
   };
 
   if (isLoading) return <p className="text-center mt-10">Loading publishers...</p>;

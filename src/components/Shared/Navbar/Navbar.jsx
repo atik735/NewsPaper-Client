@@ -43,7 +43,7 @@ const links = (
       <NavLink to="/allArticles" className={({ isActive }) => isActive ? "text-[#00001A] font-bold" : "text-gray-700"}>All Articles</NavLink>
     </li>
 
-    {user && (
+    {user && dbUser?.role === "customer" && (
       <>
         <li>
           <NavLink to="/addArticles" className={({ isActive }) => isActive ? "text-[#00001A] font-bold" : "text-gray-700"}>Add Articles</NavLink>
