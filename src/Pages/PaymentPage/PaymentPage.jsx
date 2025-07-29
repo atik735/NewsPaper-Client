@@ -19,8 +19,11 @@ const PaymentPage = () => {
 
   useEffect(() => {
     if (price) {
-      axios.post(`${import.meta.env.VITE_API_URL}/create-payment-intent`, { price })
-        .then(res => setClientSecret(res.data.clientSecret));
+      axios
+        .post(`${import.meta.env.VITE_API_URL}/create-payment-intent`, {
+          price,
+        })
+        .then((res) => setClientSecret(res.data.clientSecret));
     }
   }, [price]);
 
@@ -41,9 +44,10 @@ const PaymentPage = () => {
       return;
     }
 
-    const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: paymentMethod.id,
-    });
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: paymentMethod.id,
+      });
 
     if (confirmError) {
       toast.error(confirmError.message);
@@ -52,10 +56,20 @@ const PaymentPage = () => {
     }
 
     if (paymentIntent.status === "succeeded") {
-      await axios.post(`${import.meta.env.VITE_API_URL}/subscription`, {
-        email: user.email,
-        period,
-      });
+           // Get JWT token and send with the request
+      const token = await user.getIdToken();
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/subscription`,
+        {
+          email: user.email,
+          period,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       toast.success("Subscription successful!");
       navigate("/");
     }
@@ -64,9 +78,15 @@ const PaymentPage = () => {
 
   return (
     <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6 mt-10">
-      <h1 className="text-2xl font-bold text-center mb-4">Premium Subscription</h1>
+      <h1 className="text-2xl font-bold text-center mb-4">
+        Premium Subscription
+      </h1>
       <p className="text-center text-gray-600 mb-6">
-        Subscription Duration: <strong>{period === "1" ? "1 Minute" : period === "5" ? "5 Days" : "10 Days"}</strong><br />
+        Subscription Duration:{" "}
+        <strong>
+          {period === "1" ? "1 Minute" : period === "5" ? "5 Days" : "10 Days"}
+        </strong>
+        <br />
         Amount to Pay: <strong>${price}</strong>
       </p>
       <form onSubmit={handleSubmit}>
