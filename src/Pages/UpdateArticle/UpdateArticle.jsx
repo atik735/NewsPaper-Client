@@ -21,14 +21,15 @@ const tagsOptions = [
 const UpdateArticle = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [uploadedImage, setUploadedImage] = useState(""); // পুরোনো + নতুন
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const [imageUploadError, setImageUploadError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [tags, setTags] = useState([]);
   const [publisher, setPublisher] = useState(null);
-  const [publisherOptions, setPublisherOptions] = useState([]);
+  const [publisherOptions, setPublisherOptions] = useState([]); // dynamic publishers
   const [formData, setFormData] = useState({ title: "", description: "" });
 
-  // Load publishers
+  // Load publishers dynamically
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/publishers`)
@@ -42,10 +43,10 @@ const UpdateArticle = () => {
       .catch(() => toast.error("Failed to load publishers"));
   }, []);
 
-  // Load existing article
+  // Load article data
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/myarticles/${id}`)
+      .get(`${import.meta.env.VITE_API_URL}/myarticles/${id}`) // changed route
       .then((res) => {
         const data = res.data;
         if (!data) return toast.error("Article not found");
@@ -55,23 +56,20 @@ const UpdateArticle = () => {
           description: data.description || "",
         });
 
-        setUploadedImage(data.image || ""); // পুরোনো image
-        if (data.publisher)
-          setPublisher({ value: data.publisher, label: data.publisher });
+        setUploadedImage(data.image || "");
+        setPublisher({ value: data.publisher, label: data.publisher });
         setTags(tagsOptions.filter((tag) => data.tags?.includes(tag.value)));
       })
       .catch(() => toast.error("Failed to load article"));
   }, [id]);
 
-  // Image upload
   const handleImageUpload = async (e) => {
     const image = e.target.files[0];
-    if (!image) return;
     try {
       const imageUrl = await imageUpload(image);
       setUploadedImage(imageUrl);
     } catch (err) {
-      toast.error("Image upload failed");
+      setImageUploadError("Image upload failed");
     }
   };
 
@@ -83,7 +81,7 @@ const UpdateArticle = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (!publisher?.value) {
+    if (!publisher) {
       toast.error("Please select a publisher");
       setIsSubmitting(false);
       return;
@@ -96,9 +94,8 @@ const UpdateArticle = () => {
     }
 
     const updatedData = {
-      title: formData.title.trim(),
-      description: formData.description.trim(),
-      image: uploadedImage, // পুরোনো থাকলেও যাবে
+      ...formData,
+      image: uploadedImage,
       publisher: publisher.value,
       tags: tags.map((tag) => tag.value),
     };
@@ -191,6 +188,9 @@ const UpdateArticle = () => {
               </a>
             )}
           </div>
+          {imageUploadError && (
+            <p className="text-red-500 text-sm mt-2">{imageUploadError}</p>
+          )}
         </div>
 
         {/* Description */}
