@@ -93,7 +93,12 @@ const AllArticles = () => {
           <option value="sports">Sports</option>
           <option value="technology">Technology</option>
           <option value="health">Health</option>
+          <option value="economy">Economy</option>
+          <option value="science">Science</option>
+          <option value="buisness">Buisness</option>
+          <option value="lifestyle">Life Style</option>
           <option value="entertainment">Entertainment</option>
+          <option value="religion">Religion</option>
         </select>
       </div>
 
