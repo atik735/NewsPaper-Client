@@ -12,6 +12,11 @@ const tagsOptions = [
   { value: "technology", label: "Technology" },
   { value: "entertainment", label: "Entertainment" },
   { value: "health", label: "Health" },
+  { value: "economy", label: "Economoy" },
+  { value: "science", label: "Science" },
+  { value: "buisness", label: "Buisness" },
+  { value: "lifestyle", label: "Life Style" },
+  { value: "Religion", label: "Religion" },
 ];
 
 const AddArticles = () => {
