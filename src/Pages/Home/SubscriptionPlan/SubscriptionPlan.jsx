@@ -19,7 +19,7 @@ const SubscriptionPlan = () => {
             key={idx}
             className="rounded-lg p-6 bg-white shadow-lg border-gray-50 border hover:shadow-lg transition"
           >
-            <h3 className="text-xl font-semibold mb-4 dark:text-black">{plan.duration}</h3>
+            <h3 className="text-xl font-semibold mb-4 text-black">{plan.duration}</h3>
             <p className="text-2xl font-bold text-[#00001A] mb-6">
               ${plan.price}
             </p>
