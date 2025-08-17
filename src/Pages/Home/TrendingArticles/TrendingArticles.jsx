@@ -44,7 +44,7 @@ const TrendingArticles = () => {
 
   return (
     <div className="my-10 px-4">
-      <h1 className="text-2xl font-bold mb-5 text-center text-black">
+      <h1 className="text-2xl font-bold mb-5 text-center dark:text-white">
         Trending Articles
       </h1>
 
@@ -97,7 +97,7 @@ const TrendingArticles = () => {
                   {article.tags?.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="text-xs bg-gray-200 px-2 py-1 rounded-full"
+                      className="text-xs text-black bg-gray-200 px-2 py-1 rounded-full"
                     >
                       {tag}
                     </span>
@@ -121,7 +121,7 @@ const TrendingArticles = () => {
                       disabled={article.isPremium && !isSubscribed}
                       className={`btn btn-sm w-full ${
                         article.isPremium
-                          ? "bg-yellow-500 text-white"
+                          ? "bg-yellow-500 text-black"
                           : "btn bg-black text-white"
                       }`}
                     >
