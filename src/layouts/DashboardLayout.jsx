@@ -46,7 +46,7 @@ const DashboardLayout = () => {
           <Link to="/">
             <div className="flex items-center mb-2 relative">
               <img className="w-7 relative -top-2" src={logo} alt="" />
-              <h2 className="text-2xl font-bold mb-6">Star News</h2>
+              <h2 className="text-2xl text-black font-bold mb-6">Star News</h2>
             </div>
           </Link>
           <ul className="space-y-4">
@@ -54,7 +54,7 @@ const DashboardLayout = () => {
               <NavLink
                 to="/dashboard"
                 className={({ isActive }) =>
-                  `flex items-center gap-2 px-3 py-2 rounded ${
+                  `flex items-center gap-2 text-black px-3 py-2 rounded ${
                     isActive
                       ? "bg-blue-100 font-semibold"
                       : "hover:bg-gray-200"
@@ -69,7 +69,7 @@ const DashboardLayout = () => {
               <NavLink
                 to="/dashboard/manage-articles"
                 className={({ isActive }) =>
-                  `flex items-center gap-2 px-3 py-2 rounded ${
+                  `flex items-center text-black gap-2 px-3 py-2 rounded ${
                     isActive
                       ? "bg-blue-100 font-semibold"
                       : "hover:bg-gray-200"
@@ -83,7 +83,7 @@ const DashboardLayout = () => {
               <NavLink
                 to="/dashboard/manage-users"
                 className={({ isActive }) =>
-                  `flex items-center gap-2 px-3 py-2 rounded ${
+                  `flex items-center text-black gap-2 px-3 py-2 rounded ${
                     isActive
                       ? "bg-blue-100 font-semibold"
                       : "hover:bg-gray-200"
@@ -97,7 +97,7 @@ const DashboardLayout = () => {
               <NavLink
                 to="/dashboard/add-publisher"
                 className={({ isActive }) =>
-                  `flex items-center gap-2 px-3 py-2 rounded ${
+                  `flex items-center text-black gap-2 px-3 py-2 rounded ${
                     isActive
                       ? "bg-blue-100 font-semibold"
                       : "hover:bg-gray-200"
@@ -114,7 +114,7 @@ const DashboardLayout = () => {
         <div className="space-y-4 mt-8">
           <NavLink
             to="/"
-            className="flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-200"
+            className="flex items-center text-black gap-2 px-3 py-2 rounded hover:bg-gray-200"
           >
             <FaHome /> Back to Home
           </NavLink>

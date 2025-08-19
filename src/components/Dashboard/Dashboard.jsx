@@ -56,7 +56,7 @@ const Dashboard = () => {
     <div className="p-6 space-y-16">
       {/* Pie Chart */}
       <div>
-        <h2 className="text-2xl font-bold text-center mb-4">Publisher Article Percentage</h2>
+        <h2 className="text-2xl font-bold text-black text-center mb-4">Publisher Article Percentage</h2>
         <Chart
           chartType="PieChart"
           data={getPieChartData()}
@@ -72,7 +72,7 @@ const Dashboard = () => {
 
       {/* Bar Chart */}
       <div>
-        <h2 className="text-2xl font-bold text-center mb-4">Premium vs Free Articles</h2>
+        <h2 className="text-2xl font-bold text-black text-center mb-4">Premium vs Free Articles</h2>
         <Chart
           chartType="BarChart"
           data={getPremiumChartData()}
@@ -93,7 +93,7 @@ const Dashboard = () => {
 
       {/* Line Chart */}
       <div>
-        <h2 className="text-2xl font-bold text-center mb-4">Article Status Overview</h2>
+        <h2 className="text-2xl font-bold text-black text-center mb-4">Article Status Overview</h2>
         <Chart
           chartType="LineChart"
           data={getStatusChartData()}

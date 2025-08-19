@@ -120,7 +120,7 @@ const UpdateArticle = () => {
 
   return (
     <div className="max-w-4xl mx-auto my-10 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-center">Update Article</h2>
+      <h2 className="text-2xl font-bold mb-6 text-black text-center">Update Article</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Title */}
         <div>
@@ -133,7 +133,7 @@ const UpdateArticle = () => {
             value={formData.title}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-black"
+            className="w-full text-black px-4 py-2 border border-gray-300 rounded-md focus:outline-black"
             placeholder="Enter article title"
           />
         </div>
@@ -148,6 +148,7 @@ const UpdateArticle = () => {
             value={publisher}
             onChange={setPublisher}
             placeholder="Select Publisher"
+            className="text-black"
           />
         </div>
 
@@ -162,6 +163,7 @@ const UpdateArticle = () => {
             value={tags}
             onChange={setTags}
             placeholder="Select Tags"
+            className="text-black"
           />
         </div>
 
@@ -204,7 +206,7 @@ const UpdateArticle = () => {
             onChange={handleChange}
             rows="5"
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-black"
+            className="w-full px-4 text-black py-2 border rounded-md focus:outline-black"
             placeholder="Write article description..."
           ></textarea>
         </div>
