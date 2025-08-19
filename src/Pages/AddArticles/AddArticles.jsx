@@ -109,7 +109,7 @@ try {
 
   return (
     <div className="max-w-4xl mx-auto my-10 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-center">Add Article</h2>
+      <h2 className="text-2xl font-bold mb-6 text-black text-center">Add Article</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Title */}
         <div>
@@ -118,7 +118,7 @@ try {
             type="text"
             name="title"
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-black"
+            className="w-full px-4 py-2 border text-black border-gray-400 rounded-md focus:outline-black"
             placeholder="Enter article title"
           />
         </div>
@@ -131,6 +131,7 @@ try {
             value={publisher}
             onChange={setPublisher}
             placeholder="Select Publisher"
+            className="text-black"
           />
         </div>
 
@@ -143,6 +144,7 @@ try {
             value={tags}
             onChange={setTags}
             placeholder="Select Tags"
+            className="text-black"
           />
         </div>
 
@@ -173,16 +175,18 @@ try {
         </div>
 
         {/* Description */}
-        <div>
-          <label className="block mb-2 text-sm font-medium text-gray-700">Description</label>
-          <textarea
-            name="description"
-            rows="5"
-            required
-            className="w-full px-4 py-2 border rounded-md focus:outline-black"
-            placeholder="Write article description..."
-          ></textarea>
-        </div>
+ <div>
+  <label className="block mb-2 text-sm font-medium text-gray-700">
+    Description
+  </label>
+  <textarea
+    name="description"
+    rows="5"
+    required
+    className="w-full text-black px-4 py-2 border border-gray-400 rounded-md focus:outline-black"
+    placeholder="Write article description..."
+  ></textarea>
+</div>
 
         {/* Submit Button */}
         <button
