@@ -67,7 +67,7 @@ const MyProfile = () => {
 
   return (
     <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded shadow">
-      <h2 className="text-2xl font-bold mb-6 text-center">My Profile</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center text-black">My Profile</h2>
 
       {!editing ? (
         <div className="space-y-4 text-center">
@@ -76,10 +76,10 @@ const MyProfile = () => {
             alt="Profile"
             className="w-32 h-32 rounded-full mx-auto object-cover"
           />
-          <p>
+          <p className="text-black">
             <strong>Name:</strong> {profile?.name}
           </p>
-          <p>
+          <p className="text-black">
             <strong>Email:</strong> {profile?.email}
           </p>
           <button
