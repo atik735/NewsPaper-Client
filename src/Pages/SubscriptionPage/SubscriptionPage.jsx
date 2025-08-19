@@ -29,7 +29,7 @@ const SubscriptionPage = () => {
       </div>
 
       <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
-        <h2 className="text-2xl font-semibold mb-4">
+        <h2 className="text-2xl text-black font-semibold mb-4">
           Choose Subscription Plan
         </h2>
 
@@ -39,14 +39,14 @@ const SubscriptionPage = () => {
         <select
           value={period}
           onChange={handlePeriodChange}
-          className="w-full p-3 border rounded-md mb-4"
+          className="w-full p-3 border text-black rounded-md mb-4"
         >
           <option value="1">1 Minute - $1</option>
           <option value="5">5 Days - $5</option>
           <option value="10">10 Days - $10</option>
         </select>
 
-        <p className="text-lg font-semibold mb-4">
+        <p className="text-lg text-black font-semibold mb-4">
           Selected Plan:{" "}
           <span className="text-indigo-600">
             {period === "1"

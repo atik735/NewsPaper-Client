@@ -78,7 +78,7 @@ const PaymentPage = () => {
 
   return (
     <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6 mt-10">
-      <h1 className="text-2xl font-bold text-center mb-4">
+      <h1 className="text-2xl text-black font-bold text-center mb-4">
         Premium Subscription
       </h1>
       <p className="text-center text-gray-600 mb-6">
