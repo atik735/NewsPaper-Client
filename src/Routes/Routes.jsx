@@ -21,6 +21,7 @@ import PaymentPage from "../Pages/PaymentPage/PaymentPage";
 import DashboardLayout from "../layouts/DashboardLayout";
 import ManageUsers from "../components/Dashboard/ManageUsers";
 import AdminRoute from "./AdminRoute";
+import ContactUs from "../components/ContactUs";
  
 export const router = createBrowserRouter([
   {
@@ -59,8 +60,8 @@ export const router = createBrowserRouter([
          element:(<PrivateRoute><UpdateArticle /></PrivateRoute>)
       },
       {
-        path: "myProfile",
-         element:(<PrivateRoute><MyProfile /></PrivateRoute>)
+        path: "contactUs",
+         element:(<ContactUs />)
       },
       {
         path: "subscription",
@@ -95,6 +96,10 @@ export const router = createBrowserRouter([
       { 
         path: 'add-publisher', 
         element:<PrivateRoute><AddPublisher /></PrivateRoute>
+      },
+            {
+        path: "myProfile",
+         element:(<PrivateRoute><MyProfile /></PrivateRoute>)
       },
     ]
   },

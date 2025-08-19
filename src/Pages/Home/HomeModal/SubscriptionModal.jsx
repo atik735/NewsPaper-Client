@@ -29,25 +29,25 @@ const SubscriptionModal = ({ isOpen, onClose, onSubscribe }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="bg-white rounded-2xl p-6 max-w-md w-full shadow-lg">
-        <h2 className="text-2xl font-bold text-center mb-2">
+        <h2 className="text-2xl font-bold text-black text-center mb-2">
           Unlock Premium Features 🚀
         </h2>
-        <p className="text-gray-600 text-center mb-4">
+        <p className="text-gray-600 text-center  mb-4">
           Subscribe now to get access to powerful tools and premium articles!
         </p>
 
         <ul className="space-y-2 mb-6">
           <li className="flex items-center gap-2">
             <input type="checkbox" checked readOnly className="checkbox checkbox-success" />
-            <span>Access to exclusive premium articles</span>
+            <span className="text-black">Access to exclusive premium articles</span>
           </li>
           <li className="flex items-center gap-2">
             <input type="checkbox" checked readOnly className="checkbox checkbox-success" />
-            <span>Add unlimited articles to your profile</span>
+            <span className="text-black">Add unlimited articles to your profile</span>
           </li>
           <li className="flex items-center gap-2">
             <input type="checkbox" checked readOnly className="checkbox checkbox-success" />
-            <span>Stay ahead with curated content</span>
+            <span className="text-black">Stay ahead with curated content</span>
           </li>
         </ul>
 
@@ -59,7 +59,7 @@ const SubscriptionModal = ({ isOpen, onClose, onSubscribe }) => {
         </button>
         <button
           onClick={onClose}
-          className="btn btn-ghost w-full"
+          className="btn btn-ghost text-black bg-gray-200 w-full"
         >
           Maybe Later
         </button>
