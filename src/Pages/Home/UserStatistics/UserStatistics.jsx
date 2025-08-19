@@ -29,21 +29,21 @@ const Statistics = () => {
       <div className="flex justify-center flex-wrap gap-6 text-center">
         {/* Total Users */}
         <div className="p-6 bg-white w-72 drop-shadow rounded">
-          <h3 className="text-lg font-semibold">Total Users</h3>
+          <h3 className="text-lg text-black font-semibold">Total Users</h3>
           <p className="text-3xl font-bold text-lime-600">
             <CountUp end={stats.totalUsers} duration={2} />
           </p>
         </div>
         {/* Normal Users */}
         <div className="p-6 bg-white w-72 drop-shadow rounded">
-          <h3 className="text-lg font-semibold">Normal Users</h3>
+          <h3 className="text-lg font-semibold text-black">Normal Users</h3>
           <p className="text-3xl font-bold text-blue-500">
             <CountUp end={stats.normalUsers} duration={2} />
           </p>
         </div>
         {/* Premium Users  */}
         <div className="p-6 bg-white w-72 drop-shadow rounded">
-          <h3 className="text-lg font-semibold">Premium Users</h3>
+          <h3 className="text-lg font-semibold text-black">Premium Users</h3>
           <p className="text-3xl font-bold text-yellow-500">
             <CountUp end={stats.premiumUsers} duration={2} />
           </p>
