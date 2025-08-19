@@ -68,8 +68,8 @@ const MyArticles = () => {
       ) : (
         <div className="overflow-x-auto">
           <table className="table w-full border">
-            <thead className="bg-lime-100">
-              <tr>
+            <thead className="bg-lime-100 ">
+              <tr className='text-black'>
                 <th>#</th>
                 <th>Title</th>
                 <th>Status</th>
