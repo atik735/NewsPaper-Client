@@ -48,7 +48,7 @@ const ArticleDetails = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div className="max-w-4xl mx-auto px-4 py-8 bg-white my-2 rounded">
       {/* Publisher Badge */}
       <span className="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full ">
         {article.publisher}
