@@ -54,6 +54,16 @@ const Navbar = () => {
           All Articles
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/contactUs"
+          className={({ isActive }) =>
+            isActive ? "text-[#00001A] font-bold" : "text-gray-700"
+          }
+        >
+          ContactUs
+        </NavLink>
+      </li>
 
       {!loading && user && dbUser?.role === "customer" && (
         <>
@@ -85,16 +95,6 @@ const Navbar = () => {
               }
             >
               Subscription
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/myProfile"
-              className={({ isActive }) =>
-                isActive ? "text-[#00001A] font-bold" : "text-gray-700"
-              }
-            >
-              My Profile
             </NavLink>
           </li>
           <li>
@@ -150,16 +150,6 @@ const Navbar = () => {
               }
             >
               Subscription
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/myProfile"
-              className={({ isActive }) =>
-                isActive ? "text-[#00001A] font-bold" : "text-gray-700"
-              }
-            >
-              My Profile
             </NavLink>
           </li>
           <li>
