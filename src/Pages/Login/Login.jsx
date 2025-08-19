@@ -67,29 +67,29 @@ const Login = () => {
   }
 
   return (
-    <div className='min-h-screen flex items-center justify-center bg-white'>
+    <div className='min-h-screen flex items-center justify-center '>
       <div className='w-full max-w-md p-6 bg-white border-gray-50 drop-shadow-lg rounded-lg'>
-        <h2 className='text-3xl font-bold text-center mb-4'>Login</h2>
+        <h2 className='text-3xl text-black font-bold text-center mb-4'>Login</h2>
         <form onSubmit={handleSubmit} className='space-y-4'>
           <div>
-            <label className='block mb-1 text-sm font-medium'>Email</label>
+            <label className='block mb-1 text-black text-sm font-medium'>Email</label>
             <input
               type='email'
               name='email'
               required
               placeholder='Enter your email'
-              className='w-full px-3 py-2 rounded border border-gray-300 bg-gray-200 focus:outline-lime-500'
+              className='w-full text-black px-3 py-2 rounded border border-gray-300 bg-gray-200 focus:outline-lime-500'
             />
           </div>
           <div>
-            <label className='block mb-1 text-sm font-medium'>Password</label>
+            <label className='block mb-1 text-black text-sm font-medium'>Password</label>
             <div className='relative'>
               <input
                 type={showPassword ? 'text' : 'password'}
                 name='password'
                 required
                 placeholder='Enter your password'
-                className='w-full px-3 py-2 rounded border border-gray-300 bg-gray-200 focus:outline-lime-500'
+                className='w-full text-black px-3 py-2 rounded border border-gray-300 bg-gray-200 focus:outline-lime-500'
               />
               <span
                 onClick={() => setShowPassword(!showPassword)}
@@ -111,7 +111,7 @@ const Login = () => {
 
         <button
           onClick={handleGoogleSignIn}
-          className='w-full flex items-center justify-center gap-2 py-2 border border-gray-300 rounded hover:bg-gray-200'
+          className='w-full text-black flex items-center justify-center gap-2 py-2 border border-gray-300 rounded hover:bg-gray-200'
         >
           <FcGoogle size={20} />
           Continue with Google

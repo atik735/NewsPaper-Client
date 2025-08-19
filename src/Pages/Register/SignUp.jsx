@@ -80,12 +80,12 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen dark:bg-gray-100">
       <div className="max-w-md w-full bg-white p-8 rounded-md shadow-md">
-        <h1 className="text-3xl font-bold mb-6 text-center">Sign Up</h1>
+        <h1 className="text-3xl font-bold mb-6 text-black text-center">Sign Up</h1>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label htmlFor="name" className="block mb-1 font-medium">
+            <label htmlFor="name" className="block text-black mb-1 font-medium">
               Name
             </label>
             <input
@@ -93,12 +93,12 @@ const SignUp = () => {
               name="name"
               id="name"
               required
-              className="w-full border px-3 py-2 rounded focus:outline-lime-500"
+              className="w-full text-black border px-3 py-2 rounded focus:outline-lime-500"
               placeholder="Enter your name"
             />
           </div>
           <div>
-            <label htmlFor="image" className="block mb-1 font-medium">
+            <label htmlFor="image" className="block mb-1 text-black font-medium">
               Upload Image
             </label>
             <input
@@ -106,11 +106,11 @@ const SignUp = () => {
               name="image"
               id="image"
               accept="image/*"
-              className="w-full cursor-pointer"
+              className="w-full text-black cursor-pointer"
             />
           </div>
           <div>
-            <label htmlFor="email" className="block mb-1 font-medium">
+            <label htmlFor="email" className="block mb-1 text-black font-medium">
               Email
             </label>
             <input
@@ -118,12 +118,12 @@ const SignUp = () => {
               name="email"
               id="email"
               required
-              className="w-full border px-3 py-2 rounded focus:outline-lime-500"
+              className="w-full text-black border px-3 py-2 rounded focus:outline-lime-500"
               placeholder="Enter your email"
             />
           </div>
           <div>
-            <label htmlFor="password" className="block mb-1 font-medium">
+            <label htmlFor="password" className="block mb-1 text-black font-medium">
               Password
             </label>
             <div className="relative">
@@ -132,7 +132,7 @@ const SignUp = () => {
                 name="password"
                 id="password"
                 required
-                className="w-full border px-3 py-2 rounded focus:outline-lime-500"
+                className="w-full border text-black px-3 py-2 rounded focus:outline-lime-500"
                 placeholder="Enter your password"
               />
               <button
@@ -160,7 +160,7 @@ const SignUp = () => {
 
         <button
           onClick={handleGoogleSignIn}
-          className="w-full flex items-center cursor-pointer justify-center space-x-3 border border-gray-300 py-2 rounded hover:bg-gray-100"
+          className="w-full text-black flex items-center cursor-pointer justify-center space-x-3 border border-gray-300 py-2 rounded hover:bg-gray-100"
         >
           <FcGoogle size={24} />
           <span>Continue with Google</span>

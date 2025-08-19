@@ -23,12 +23,12 @@ const ManageUsers = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 ">
       <h2 className="text-2xl font-semibold mb-4">All Users</h2>
       <div className="overflow-x-auto">
         <table className="table-auto w-full border-collapse border rounded-lg overflow-hidden">
           <thead className="bg-gray-100">
-            <tr>
+            <tr className="text-black">
               <th className="p-2 text-left">#</th>
               <th className="p-2 text-left">Name</th>
               <th className="p-2 text-left">Email</th>
@@ -39,10 +39,10 @@ const ManageUsers = () => {
           </thead>
           <tbody>
             {users.map((user, idx) => (
-              <tr key={user._id} className="border-t">
+              <tr key={user._id} className="border-t text-black bg-white">
                 <td className="p-2">{idx + 1}</td>
                 <td className="p-2">{user.name}</td>
-                <td className="p-2">{user.email}</td>
+                <td className="p-2 ">{user.email}</td>
                 <td className="p-2">
                   <img
                     src={user.image}

@@ -84,8 +84,8 @@ const ManageArticles = () => {
 
       <div className="overflow-x-auto">
         <table className="table w-full">
-          <thead>
-            <tr>
+          <thead className="bg-gray-100">
+            <tr className="text-black">
               <th>Author</th>
               <th>Title</th>
               <th>Publisher</th>
@@ -105,17 +105,17 @@ const ManageArticles = () => {
                     <img
                       src={article.authorImage}
                       alt={article.authorName}
-                      className="w-12 h-12 rounded-full"
+                      className="w-12 h-12 text-black rounded-full"
                     />
                     <div>
-                      <p className="font-bold">{article.authorName}</p>
+                      <p className="font-bold text-black">{article.authorName}</p>
                       <p className="text-sm text-gray-500">{article.authorEmail}</p>
                     </div>
                   </div>
                 </td>
-                <td>{article.title}</td>
-                <td>{article.publisher}</td>
-                <td>{new Date(article.createdAt).toLocaleDateString()}</td>
+                <td className="text-black">{article.title}</td>
+                <td className="text-black">{article.publisher}</td>
+                <td className="text-black">{new Date(article.createdAt).toLocaleDateString()}</td>
                 <td>
                   <span
                     className={`px-3 py-1 rounded text-xs font-semibold ${

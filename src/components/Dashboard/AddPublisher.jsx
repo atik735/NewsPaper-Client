@@ -67,23 +67,23 @@ const AddPublisher = () => {
 
   return (
     <div className="max-w-4xl mx-auto my-10 p-6 bg-white rounded-lg shadow">
-      <h2 className="text-2xl font-bold mb-6 text-center">Add Publisher</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center text-black">Add Publisher</h2>
 
       {/* Add Form */}
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label className="block mb-2 text-sm font-medium">Publisher Name</label>
+          <label className="block mb-2 text-sm font-medium text-black">Publisher Name</label>
           <input
             type="text"
             name="name"
             required
-            className="w-full border px-4 py-2 rounded-md"
+            className="w-full border px-4 py-2 text-black rounded-md"
             placeholder="Enter publisher name"
           />
         </div>
 
         <div>
-          <label className="block mb-2 text-sm font-medium">Publisher Logo</label>
+          <label className="block mb-2 text-sm font-medium text-black">Publisher Logo</label>
           <input
             type="file"
             accept="image/*"
@@ -103,14 +103,14 @@ const AddPublisher = () => {
 
       {/* Publisher List */}
       <div className="mt-10">
-        <h3 className="text-lg font-semibold mb-3">All Publishers</h3>
+        <h3 className="text-lg text-black font-semibold mb-3">All Publishers</h3>
         {isLoading ? (
-          <p>Loading publishers...</p>
+          <p className="text-black">Loading publishers...</p>
         ) : (
           <div className="overflow-x-auto">
             <table className="table w-full border">
               <thead>
-                <tr>
+                <tr className="text-black">
                   <th>Logo</th>
                   <th>Name</th>
                   <th>Action</th>
@@ -118,7 +118,7 @@ const AddPublisher = () => {
               </thead>
               <tbody>
                 {publishers.map((pub) => (
-                  <tr key={pub._id}>
+                  <tr key={pub._id} className="text-black">
                     <td>
                       <img
                         src={pub.logo}

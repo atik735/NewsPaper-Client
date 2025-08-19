@@ -27,7 +27,7 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-50">
+    <div className="flex h-screen overflow-hidden ">
       {/* Mobile Toggle Button */}
       <button
         className="absolute top-4 left-4 z-50 md:hidden text-2xl p-2 bg-gray-100 rounded-full shadow"
@@ -141,8 +141,8 @@ const DashboardLayout = () => {
       )}
 
       {/* Main Content */}
-<main className="flex-1 overflow-y-auto p-4 md:p-6 h-full bg-gray-50">
-  <div className="bg-white shadow rounded-lg p-6 w-full">
+<main className="flex-1 overflow-y-auto p-4 md:p-6 h-full ">
+  <div className=" shadow bg-whi rounded-lg p-6 w-full">
     <Outlet />
   </div>
 </main>
