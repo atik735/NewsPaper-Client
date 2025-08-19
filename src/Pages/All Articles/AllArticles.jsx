@@ -123,7 +123,7 @@ const AllArticles = () => {
               alt={article.title}
               className="mb-2 h-40 w-full object-cover rounded"
             />
-            <h3 className="font-bold text-lg">{article.title}</h3>
+            <h3 className="font-bold text-lg text-black">{article.title}</h3>
             <p className="text-sm text-gray-500">{article.publisher}</p>
 
             {/* Tags */}
@@ -131,7 +131,7 @@ const AllArticles = () => {
               {article.tags?.map((tag, idx) => (
                 <span
                   key={idx}
-                  className="text-xs bg-gray-200 px-2 py-1 rounded-full"
+                  className="text-xs bg-gray-200 text-black px-2 py-1 rounded-full"
                 >
                   {tag}
                 </span>
@@ -151,7 +151,7 @@ const AllArticles = () => {
                 disabled={article.isPremium && !isSubscribed}
                 className={`mt-4 btn w-full ${
                   article.isPremium
-                    ? "bg-yellow-500 text-white"
+                    ? "bg-yellow-500 text-black"
                     : "btn bg-black text-white"
                 }`}
               >
